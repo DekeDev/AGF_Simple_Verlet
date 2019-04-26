@@ -42,22 +42,23 @@ uniformPositionX = shader_get_uniform(shVerlet, "xPosition");
 uniformPositionY = shader_get_uniform(shVerlet, "yPosition");
 uniformOrigin = shader_get_uniform(shVerlet, "verletOrigin");
 
-// Fill verlet point array with default points
-var _lastID = 0;
+#region --- Fill verlet point array with default points ------------------
+	var _lastID = 0;
 
-for (var i = 0; i < VERLET_POINTS; ++i) {
-	var _fixed = (i == 0);
+	for (var i = 0; i < VERLET_POINTS; ++i) {
+		var _fixed = (i == 0);
 	
-	//
-	// Verlet Array
-	// [fixed, parent id, x, y, xprevious, yprevious, x_acceleration, y_acceleration]
-	//  
-	verletObject[i] = [_fixed, _lastID, x, y + ((i+1) * VERLET_POINT_DISTANCE), x, y + ((i+1) * VERLET_POINT_DISTANCE), 0, VERLET_GRAVITY];
+		//
+		// Verlet Array
+		// [fixed, parent id, x, y, xprevious, yprevious, x_acceleration, y_acceleration]
+		//  
+		verletObject[i] = [_fixed, _lastID, x, y + ((i+1) * VERLET_POINT_DISTANCE), x, y + ((i+1) * VERLET_POINT_DISTANCE), 0, VERLET_GRAVITY];
 	
-	_lastID = i;
-}
+		_lastID = i;
+	}
+#endregion
 
-#region --- Create vertex buffer ------------
+#region --- Create vertex buffer -----------------------------------------
 	// Load texture and UVs
 	var _sprite = VERLET_TEXTURE;
 	var _alpha = VERLET_ALPHA;

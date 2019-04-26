@@ -4,7 +4,7 @@ if (VERLET_ANCHOR_ENTITY != noone) {
 	y = VERLET_ANCHOR_ENTITY.y;
 }
 // Define origin of the verlet chain
-verletOrigin = VERLET_FIXED_ORIGIN ? [0, 0, VERLET_FIXED_ORIGIN_X, VERLET_FIXED_ORIGIN_Y] : [0, 0, x, y];
+verletOrigin = VERLET_FIXED_ORIGIN ? [x, y, VERLET_FIXED_ORIGIN_X, VERLET_FIXED_ORIGIN_Y] : [x, y, x, y];
 
 // Recalculate point distance if needed
 VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VERLET_POINT_DISTANCE;
@@ -48,8 +48,8 @@ VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VE
 		_vo[@3] = _vres[1];
 		_vo[@4] = _vres[2];
 		_vo[@5] = _vres[3];
-		//_vo[@6] = _vres[4];
-		//_vo[@7] = _vres[5];
+		_vo[@6] = _vres[4];
+		_vo[@7] = _vres[5];
 	
 		// Constraints
 		var _cres = verlet_solve_constraints(VERLET_POINT_DISTANCE, _vo[2], _vo[3], _vop[2], _vop[3], _vop[0], VERLET_CONSTRAINT_ITERATIONS);
@@ -78,7 +78,3 @@ VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VE
 		yPositionUniformArray[_id+1] = _y2;	
 	}
 #endregion
-
-var _vo = verletObject[0];
-verletOrigin[0] = _vo[2];
-verletOrigin[1] = _vo[3];

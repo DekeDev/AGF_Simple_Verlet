@@ -33,11 +33,11 @@ if (_col != noone) {
 	_x = _x;
 	_y = _y;
 	
-	//_xprevious = x - _vx;
-	//_yprevious = y - _vy;
+	_xprevious = _x - _vx;
+	_yprevious = _y - _vy;
 } else {
 	_x = _nx;
 	_y = _ny;
 }
 
-return [_x, _y, _xprevious, _yprevious]
+return [_x, _y, _xprevious, _yprevious, _x_acceleration, _y_acceleration]
