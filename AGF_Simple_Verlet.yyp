@@ -191,25 +191,6 @@
             }
         },
         {
-            "Key": "4fdbad15-837d-411c-9b0b-fdd15868dad8",
-            "Value": {
-                "id": "eecbcfcb-5695-421d-aad1-808374b539e2",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\/rk4_physics\/rk4_physics.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "61f96390-2e8b-4a50-ac6a-2ae01b87a4de",
             "Value": {
                 "id": "1e427ecc-5d86-424d-aa2f-810d9ab9ab68",
@@ -629,7 +610,6 @@
         }
     ],
     "script_order": [
-        "4fdbad15-837d-411c-9b0b-fdd15868dad8",
         "3b45a987-700d-4aa9-b1ae-4e1a02ec4074",
         "da0b390d-b7ef-489d-a1e7-ee2052d6df9f"
     ],

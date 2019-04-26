@@ -13,14 +13,16 @@ varying vec4 v_vColour;
 uniform float xPosition[256];
 uniform float yPosition[256];
 
+uniform vec4 verletOrigin;
+
 void main()
 {
     vec4 verlet_pos = vec4( in_Position.xyz, 1.0);
 	
 	int index = int(in_Weight);
 
-	verlet_pos.x = xPosition[index];
-	verlet_pos.y = yPosition[index];
+	verlet_pos.x = xPosition[index] - verletOrigin.x + verletOrigin.z;
+	verlet_pos.y = yPosition[index] - verletOrigin.y + verletOrigin.w;
 	
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * verlet_pos;
     

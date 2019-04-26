@@ -3,6 +3,11 @@ if (VERLET_ANCHOR_ENTITY != noone) {
 	x = VERLET_ANCHOR_ENTITY.x;
 	y = VERLET_ANCHOR_ENTITY.y;
 }
+// Define origin of the verlet chain
+verletOrigin = VERLET_FIXED_ORIGIN ? [0, 0, VERLET_FIXED_ORIGIN_X, VERLET_FIXED_ORIGIN_Y] : [0, 0, x, y];
+
+// Recalculate point distance if needed
+VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VERLET_POINT_DISTANCE;
 
 #region --- Calculate perpendicular vertices to verlet points for first point in array --------------------
 	var _vo = verletObject[@0];
@@ -73,3 +78,7 @@ if (VERLET_ANCHOR_ENTITY != noone) {
 		yPositionUniformArray[_id+1] = _y2;	
 	}
 #endregion
+
+var _vo = verletObject[0];
+verletOrigin[0] = _vo[2];
+verletOrigin[1] = _vo[3];

@@ -3,8 +3,13 @@
 #macro VERLET_CONSTRAINT_ITERATIONS 5 // More iterations mean more accurate constraint solving but also more step time
 
 // Define verlet chain
+VERLET_FIXED_ORIGIN = true; // Set the origin of the verlet for drawing it to a fixed position. 
+							 // This allows for verlet physics while still being able to draw the chain to a surface, for example.
+VERLET_FIXED_ORIGIN_X = 64; // x position for fixed origin
+VERLET_FIXED_ORIGIN_Y = 64; // y position for fixed origin
+
 VERLET_POINTS = 8; // Number of points in the verlet chain
-VERLET_FIX_LENGTH = true; // Set true to define the length for the whole chain and false to use the distance between points instead
+VERLET_FIX_LENGTH = false; // Set true to define the length for the whole chain and false to use the distance between points instead
 VERLET_LENGTH = 45; // Length for the verlet chain. Only used if VERLET_FIX_LENGTH is true
 VERLET_POINT_DISTANCE = 4.65; // Resting distance between all points
 VERLET_POINT_WIDTH = 4; // Polygon width for the textured chain
@@ -22,16 +27,20 @@ VERLET_STRICT_CONSTRAINTS = true; // Clamp constraints strictly to point distanc
 VERLET_ANCHOR_ENTITY = oAnchor; // Define an entity/object to anchor the verlet chain to
 VERLET_COLLIDER_OBJECT = noone; // The verlet chain will collide with this object (or just put noone)
 
-// Initialize verlet point array and texture
+// Initialize verlet chain and texture
 verletObject = [];
+verletOrigin = [];
 texture = noone;
 VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VERLET_POINT_DISTANCE;
+x = VERLET_FIXED_ORIGIN ? VERLET_FIXED_ORIGIN_X : VERLET_ANCHOR_ENTITY.x;
+y = VERLET_FIXED_ORIGIN ? VERLET_FIXED_ORIGIN_Y : VERLET_ANCHOR_ENTITY.y;
 
 // Initialize shader uniforms
 xPositionUniformArray = [];
 yPositionUniformArray = [];
 uniformPositionX = shader_get_uniform(shVerlet, "xPosition");
 uniformPositionY = shader_get_uniform(shVerlet, "yPosition");
+uniformOrigin = shader_get_uniform(shVerlet, "verletOrigin");
 
 // Fill verlet point array with default points
 var _lastID = 0;
