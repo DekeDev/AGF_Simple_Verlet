@@ -5,8 +5,8 @@
 // Define verlet chain
 VERLET_FIXED_ORIGIN = true; // Set the origin of the verlet for drawing it to a fixed position. 
 							 // This allows for verlet physics while still being able to draw the chain to a surface, for example.
-VERLET_FIXED_ORIGIN_X = 64; // x position for fixed origin
-VERLET_FIXED_ORIGIN_Y = 64; // y position for fixed origin
+VERLET_FIXED_ORIGIN_X = 24; // x position for fixed origin
+VERLET_FIXED_ORIGIN_Y = 24; // y position for fixed origin
 
 VERLET_POINTS = 8; // Number of points in the verlet chain
 VERLET_FIX_LENGTH = false; // Set true to define the length for the whole chain and false to use the distance between points instead
