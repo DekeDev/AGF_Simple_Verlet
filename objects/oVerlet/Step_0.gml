@@ -10,7 +10,7 @@ verletOrigin = VERLET_FIXED_ORIGIN ? [x, y, VERLET_FIXED_ORIGIN_X, VERLET_FIXED_
 VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VERLET_POINT_DISTANCE;
 
 #region --- Calculate perpendicular vertices to verlet points for first point in array --------------------
-	var _vo = verletObject[@0];
+	var _vo = verletObject[0];
 	var _width = VERLET_POINT_WIDTH;
 	_vo[@2] = x;
 	_vo[@3] = y;
@@ -37,8 +37,8 @@ VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VE
 
 #region --- Calculate verlet physics, constraints and vertex positions for the rest of the verlet chain ---
 	for (var i = 1; i < VERLET_POINTS; ++i) {
-		var _vo = verletObject[@i];
-		var _vop = verletObject[@i-1];
+		var _vo = verletObject[i];
+		var _vop = verletObject[i-1];
 		var _id = i * 2;
 	
 		// Verlet movement
