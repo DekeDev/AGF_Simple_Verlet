@@ -18,14 +18,14 @@ VERLET_POINT_WIDTH_FACTOR = 0.95; // Width gets multiplied by this value with ev
 VERLET_TEXTURE = sVerlet; // The main texture for the verlet chain
 
 VERLET_ALPHA = 1.0; // Base alpha for all polygons
-VERLET_ALPHA_DECREASE = -0.03; // Alpha gets reduced by this value with every point
+VERLET_ALPHA_DECREASE = 0.03; // Alpha gets reduced by this value with every point
 
 VERLET_GRAVITY = 2.965; // Gravity (along the y-axis) for all points in the chain
 VERLET_DAMPING = 0.740; // Damping for the verlet physics (0 - full damping, 1 - no damping)
 
 VERLET_STRICT_CONSTRAINTS = true; // Clamp constraints strictly to point distance or give the verlet object a little bit of "stretch"
 VERLET_ANCHOR_ENTITY = oAnchor; // Define an entity/object to anchor the verlet chain to
-VERLET_COLLIDER_OBJECT = noone; // The verlet chain will collide with this object (or just put noone)
+VERLET_COLLIDER_OBJECT = oCollision; // The verlet chain will collide with this object (or just put noone)
 
 // Initialize verlet chain and texture
 verletObject = [];
@@ -141,7 +141,7 @@ uniformOrigin = shader_get_uniform(shVerlet, "verletOrigin");
 			vertex_float1(vBuff, _id+2);
 		#endregion
 		
-		_alpha += VERLET_ALPHA_DECREASE;
+		_alpha -= VERLET_ALPHA_DECREASE;
 	}
 	
 	vertex_end(vBuff);
