@@ -3,8 +3,19 @@ if (VERLET_ANCHOR_ENTITY != noone) {
 	x = VERLET_ANCHOR_ENTITY.x;
 	y = VERLET_ANCHOR_ENTITY.y;
 }
+
 // Define origin of the verlet chain
-verletOrigin = VERLET_FIXED_ORIGIN ? [x, y, VERLET_FIXED_ORIGIN_X, VERLET_FIXED_ORIGIN_Y] : [x, y, x, y];
+if (VERLET_FIXED_ORIGIN) {
+	verletOrigin[0] = x;
+	verletOrigin[1] = y;
+	verletOrigin[2] = VERLET_FIXED_ORIGIN_X;
+	verletOrigin[3] = VERLET_FIXED_ORIGIN_Y;
+} else {
+	verletOrigin[0] = x;
+	verletOrigin[1] = y;
+	verletOrigin[2] = x;
+	verletOrigin[3] = y;
+}
 
 // Recalculate point distance if needed
 VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VERLET_POINT_DISTANCE;
