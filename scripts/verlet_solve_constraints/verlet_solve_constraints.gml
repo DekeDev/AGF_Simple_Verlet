@@ -35,4 +35,9 @@ repeat(_iterations) {
 	_y -= _t_y;
 }
 
-return [_x, _y, _parent_x, _parent_y]
+verletPhysicsReturn[0] = _x;
+verletPhysicsReturn[1] = _y;
+verletPhysicsReturn[2] = _parent_x;
+verletPhysicsReturn[3] = _parent_y;
+
+return verletPhysicsReturn;

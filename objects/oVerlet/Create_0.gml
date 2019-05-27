@@ -30,6 +30,7 @@ VERLET_COLLIDER_OBJECT = oCollision; // The verlet chain will collide with this 
 // Initialize verlet chain and texture
 verletObject = [];
 verletOrigin = [];
+verletPhysicsReturn = [];
 texture = noone;
 VERLET_POINT_DISTANCE = VERLET_FIX_LENGTH ? (VERLET_LENGTH / VERLET_POINTS) : VERLET_POINT_DISTANCE;
 x = VERLET_FIXED_ORIGIN ? VERLET_FIXED_ORIGIN_X : VERLET_ANCHOR_ENTITY.x;

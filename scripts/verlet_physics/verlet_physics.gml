@@ -40,4 +40,11 @@ if (_col != noone) {
 	_y = _ny;
 }
 
-return [_x, _y, _xprevious, _yprevious, _x_acceleration, _y_acceleration]
+verletPhysicsReturn[0] = _x;
+verletPhysicsReturn[1] = _y;
+verletPhysicsReturn[2] = _xprevious;
+verletPhysicsReturn[3] = _yprevious;
+verletPhysicsReturn[4] = _x_acceleration;
+verletPhysicsReturn[5] = _y_acceleration;
+
+return verletPhysicsReturn;
